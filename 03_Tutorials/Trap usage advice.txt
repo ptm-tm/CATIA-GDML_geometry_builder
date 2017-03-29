@@ -1,0 +1,27 @@
+First find bottoms of your shape.
+Strictly choose point one after another going clockwise or counter-clockwise in each bottom.
+Don't select, for example, 4 after 2.
+
+If you follow these rules you will have 8 different ways to do that.
+clockwise
+	1234 5678 - ok
+	2341 6785 - ok
+	3412 7856 - theta inverse
+	4123 8567 - theta inverse
+counter-clockwise
+	4321 8765
+	3214 7658
+	2143 6578
+	1432 5876
+
+Taking into account that the lower bottom and the upper bottom are not equivalent due to positioning problem there appear 8 more cases.
+clockwise
+	5678 1234
+	6785 2341
+	7856 3412
+	8567 4123
+counter-clockwise
+	8765 4321
+	7658 3214
+	6578 2143
+	5876 1432
