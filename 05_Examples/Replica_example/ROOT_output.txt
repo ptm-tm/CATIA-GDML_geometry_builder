@@ -1,0 +1,19 @@
+ROOT v6-08-06
+
+> root -l "ImportGDML.C(\"Replica_example/Replica_example.gdml\")"
+
+root [0] 
+Processing ImportGDML.C("Replica_example/Replica_example.gdml")...
+Info in <TGeoManager::TGeoManager>: Geometry geom, geom created
+Info in <TGeoManager::Import>: Reading geometry from file: Replica_example/Replica_example.gdml
+Info in <TGeoManager::TGeoManager>: Geometry GDMLImport, Geometry imported from GDML created
+Info in <TGeoManager::SetTopVolume>: Top volume is TopVolume. Master volume is TopVolume
+Info in <TGeoNavigator::BuildCache>: --- Maximum geometry depth set to 100
+Info in <TGeoManager::CheckGeometry>: Fixing runtime shapes...
+Info in <TGeoManager::CheckGeometry>: ...Nothing to fix
+Info in <TGeoManager::CloseGeometry>: Counting nodes...
+Info in <TGeoManager::Voxelize>: Voxelizing...
+Info in <TGeoManager::CloseGeometry>: Building cache...
+Info in <TGeoManager::CountLevels>: max level = 3, max placements = 10
+Info in <TGeoManager::CloseGeometry>: 2111 nodes/ 4 volume UID's in Geometry imported from GDML
+Info in <TGeoManager::CloseGeometry>: ----------------modeler ready----------------

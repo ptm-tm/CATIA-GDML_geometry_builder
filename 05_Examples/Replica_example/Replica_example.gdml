@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<define>
+<position name="central" x="0" y="0" z="0" unit="mm"/>
+<rotation name="identity" x="0" y="0" z="0" unit="degree"/>
+<variable name="DEGtoRAD" value="1.74532925199433E-02"/>
+</define>
+<materials>
+<material name="vacuum" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+</materials>
+<solids>
+<box name="Slice_PartBody" x="(10.000000)*2" y="(10.000000)*2" z="(0.500000)*2" lunit="mm"/>
+<box name="Block_PartBody" x="(10.000000)*2" y="(10.000000)*2" z="(10.000000)*2" lunit="mm"/>
+<box name="Module_PartBody" x="(100.000000)*2" y="(10.000000)*2" z="(10.000000)*2" lunit="mm"/>
+<box name="TopVolume_PartBody" x="(500.000000)*2" y="(500.000000)*2" z="(500.000000)*2" lunit="mm"/>
+</solids>
+<structure>
+<volume name="Slice">
+<materialref ref="vacuum"/>
+<solidref ref="Slice_PartBody"/>
+</volume>
+<volume name="Block">
+<materialref ref="vacuum"/>
+<solidref ref="Block_PartBody"/>
+<divisionvol number="20" width="1" offset="0" axis="kZAxis" unit="mm">
+<volumeref ref="Slice"/>
+</divisionvol>
+</volume>
+<volume name="Module">
+<materialref ref="vacuum"/>
+<solidref ref="Module_PartBody"/>
+<divisionvol number="10" width="20" offset="0" axis="kXAxis" unit="mm">
+<volumeref ref="Block"/>
+</divisionvol>
+</volume>
+<volume name="TopVolume">
+<materialref ref="vacuum"/>
+<solidref ref="TopVolume_PartBody"/>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="-90" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="-70" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="-50" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="-30" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="-10" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="10" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="30" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="50" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="70" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Module"/>
+<position name="Module_pos_TopVolume" x="0" y="90" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+</structure>
+<setup name="FAIRgeom" version="1.0">
+<world ref="TopVolume"/>
+</setup>
+</gdml>

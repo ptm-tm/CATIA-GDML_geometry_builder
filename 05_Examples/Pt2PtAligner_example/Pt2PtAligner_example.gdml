@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<define>
+<position name="central" x="0" y="0" z="0" unit="mm"/>
+<rotation name="identity" x="0" y="0" z="0" unit="degree"/>
+<variable name="DEGtoRAD" value="1.74532925199433E-02"/>
+</define>
+<materials>
+<material name="vacuum" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+</materials>
+<solids>
+<trd name="Part1_PartBody" x1="(80.000000)*2" y1="(60.000000)*2" x2="(30.000000)*2" y2="(20.000000)*2" z="(40.000000)*2" lunit="mm"/>
+<box name="Part2_PartBody" x="(30.000000)*2" y="(20.000000)*2" z="(40.000000)*2" lunit="mm"/>
+<box name="TopVolume_PartBody" x="(350.000000)*2" y="(350.000000)*2" z="(350.000000)*2" lunit="mm"/>
+</solids>
+<structure>
+<volume name="Part1">
+<materialref ref="vacuum"/>
+<solidref ref="Part1_PartBody"/>
+</volume>
+<volume name="Part2">
+<materialref ref="vacuum"/>
+<solidref ref="Part2_PartBody"/>
+</volume>
+<volume name="TopVolume">
+<materialref ref="vacuum"/>
+<solidref ref="TopVolume_PartBody"/>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_TopVolume" x="123.456" y="235.85" z="-18" unit="mm"/>
+<rotation name="Part1_rot_TopVolume" x="-(50.0000000000719)" y="-(0)" z="-(0)" unit="deg"/>
+</physvol>
+<physvol>
+<volumeref ref="Part2"/>
+<position name="Part2_pos_TopVolume" x="123.456" y="174.5664445505" z="33.4230087749" unit="mm"/>
+<rotation name="Part2_rot_TopVolume" x="-(50.0000000000719)" y="-(0)" z="-(0)" unit="deg"/>
+</physvol>
+</volume>
+</structure>
+<setup name="FAIRgeom" version="1.0">
+<world ref="TopVolume"/>
+</setup>
+</gdml>

@@ -1,0 +1,19 @@
+ROOT v6-08-06
+
+> root -l "ImportGDML.C(\"Pt2PtAligner_example/Pt2PtAligner_example.gdml\")"
+
+root [0] 
+Processing ImportGDML.C("Pt2PtAligner_example/Pt2PtAligner_example.gdml")...
+Info in <TGeoManager::TGeoManager>: Geometry geom, geom created
+Info in <TGeoManager::Import>: Reading geometry from file: Pt2PtAligner_example/Pt2PtAligner_example.gdml
+Info in <TGeoManager::TGeoManager>: Geometry GDMLImport, Geometry imported from GDML created
+Info in <TGeoManager::SetTopVolume>: Top volume is TopVolume. Master volume is TopVolume
+Info in <TGeoNavigator::BuildCache>: --- Maximum geometry depth set to 100
+Info in <TGeoManager::CheckGeometry>: Fixing runtime shapes...
+Info in <TGeoManager::CheckGeometry>: ...Nothing to fix
+Info in <TGeoManager::CloseGeometry>: Counting nodes...
+Info in <TGeoManager::Voxelize>: Voxelizing...
+Info in <TGeoManager::CloseGeometry>: Building cache...
+Info in <TGeoManager::CountLevels>: max level = 1, max placements = 2
+Info in <TGeoManager::CloseGeometry>: 3 nodes/ 3 volume UID's in Geometry imported from GDML
+Info in <TGeoManager::CloseGeometry>: ----------------modeler ready----------------
