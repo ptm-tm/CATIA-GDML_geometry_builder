@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<define>
+<position name="central" x="0" y="0" z="0" unit="mm"/>
+<rotation name="identity" x="0" y="0" z="0" unit="degree"/>
+<variable name="DEGtoRAD" value="1.74532925199433E-02"/>
+</define>
+<materials>
+<material name="lead" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+<material name="vacuum" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+</materials>
+<solids>
+<box name="Boolean_shape_PartBody_op0" x="(80.000000)*2" y="(60.000000)*2" z="(40.000000)*2" lunit="mm"/>
+<orb name="Boolean_shape_PartBody_op1" r="60.000000" lunit="mm"/>
+<subtraction name="Boolean_shape_PartBody_op01">
+<first ref="Boolean_shape_PartBody_op0"/>
+<second ref="Boolean_shape_PartBody_op1"/>
+<position name="Boolean_shape_PartBody__1_pos_0" x="0" y="-60" z="20" unit="mm"/>
+<rotationref ref="identity"/>
+</subtraction>
+<orb name="Boolean_shape_PartBody_op2" r="60.000000" lunit="mm"/>
+<subtraction name="Boolean_shape_PartBody_op012">
+<first ref="Boolean_shape_PartBody_op01"/>
+<second ref="Boolean_shape_PartBody_op2"/>
+<position name="Boolean_shape_PartBody__2_pos_01" x="0" y="60" z="20" unit="mm"/>
+<rotationref ref="identity"/>
+</subtraction>
+<tube name="Boolean_shape_PartBody_op3" rmin="0.000000" rmax="10.000000" z="(20.000000)*2" startphi="0.000000" deltaphi="360.000000" aunit="deg" lunit="mm"/>
+<union name="Boolean_shape_PartBody_op0123">
+<first ref="Boolean_shape_PartBody_op012"/>
+<second ref="Boolean_shape_PartBody_op3"/>
+<position name="Boolean_shape_PartBody__3_pos_012" x="-60" y="0" z="60" unit="mm"/>
+<rotationref ref="identity"/>
+</union>
+<tube name="Boolean_shape_PartBody_op4" rmin="0.000000" rmax="10.000000" z="(20.000000)*2" startphi="0.000000" deltaphi="360.000000" aunit="deg" lunit="mm"/>
+<union name="Boolean_shape_PartBody">
+<first ref="Boolean_shape_PartBody_op0123"/>
+<second ref="Boolean_shape_PartBody_op4"/>
+<position name="Boolean_shape_PartBody__4_pos_0123" x="60" y="0" z="60" unit="mm"/>
+<rotationref ref="identity"/>
+</union>
+<box name="Boolean_container_PartBody" x="(100.000000)*2" y="(100.000000)*2" z="(100.000000)*2" lunit="mm"/>
+</solids>
+<structure>
+<volume name="Boolean_shape">
+<materialref ref="lead"/>
+<solidref ref="Boolean_shape_PartBody"/>
+</volume>
+<volume name="Boolean_container">
+<materialref ref="vacuum"/>
+<solidref ref="Boolean_container_PartBody"/>
+<physvol>
+<volumeref ref="Boolean_shape"/>
+<positionref ref="central"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+</structure>
+<setup name="FAIRgeom" version="1.0">
+<world ref="Boolean_container"/>
+</setup>
+</gdml>

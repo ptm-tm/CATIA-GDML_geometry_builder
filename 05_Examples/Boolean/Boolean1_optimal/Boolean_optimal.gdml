@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<define>
+<position name="central" x="0" y="0" z="0" unit="mm"/>
+<rotation name="identity" x="0" y="0" z="0" unit="degree"/>
+<variable name="DEGtoRAD" value="1.74532925199433E-02"/>
+</define>
+<materials>
+<material name="vacuum" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+</materials>
+<solids>
+<box name="Part1_PartBody_op0" x="(80.000000)*2" y="(30.000000)*2" z="(40.000000)*2" lunit="mm"/>
+<orb name="Part1_PartBody_op1" r="60.000000" lunit="mm"/>
+<subtraction name="Part1_PartBody">
+<first ref="Part1_PartBody_op0"/>
+<second ref="Part1_PartBody_op1"/>
+<position name="Part1_PartBody__1_pos_0" x="0" y="30" z="20" unit="mm"/>
+<rotationref ref="identity"/>
+</subtraction>
+<tube name="Part2_PartBody" rmin="0.000000" rmax="10.000000" z="(20.000000)*2" startphi="0.000000" deltaphi="360.000000" aunit="deg" lunit="mm"/>
+<box name="Boolean1_optimal_container_PartBody" x="(100.000000)*2" y="(100.000000)*2" z="(100.000000)*2" lunit="mm"/>
+</solids>
+<structure>
+<volume name="Part1">
+<materialref ref="vacuum"/>
+<solidref ref="Part1_PartBody"/>
+</volume>
+<volume name="Part2">
+<materialref ref="vacuum"/>
+<solidref ref="Part2_PartBody"/>
+</volume>
+<volume name="Boolean1_optimal_container">
+<materialref ref="vacuum"/>
+<solidref ref="Boolean1_optimal_container_PartBody"/>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Boolean1_optimal_container" x="0" y="30" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Boolean1_optimal_container" x="0" y="-30" z="0" unit="mm"/>
+<rotation name="Part1_rot_Boolean1_optimal_container" x="-(0)" y="-(0)" z="-(180.000000000259)" unit="deg"/>
+</physvol>
+<physvol>
+<volumeref ref="Part2"/>
+<position name="Part2_pos_Boolean1_optimal_container" x="60" y="0" z="60" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part2"/>
+<position name="Part2_pos_Boolean1_optimal_container" x="-60" y="0" z="60" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+</structure>
+<setup name="FAIRgeom" version="1.0">
+<world ref="Boolean1_optimal_container"/>
+</setup>
+</gdml>

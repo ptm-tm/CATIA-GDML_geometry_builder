@@ -1,0 +1,1 @@
+It is highly recommended to avoid building shapes like this using Boolead union. See Boolean1_optimal example.
