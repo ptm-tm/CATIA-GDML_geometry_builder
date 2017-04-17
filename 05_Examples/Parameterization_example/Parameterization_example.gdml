@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<define>
+<position name="central" x="0" y="0" z="0" unit="mm"/>
+<rotation name="identity" x="0" y="0" z="0" unit="degree"/>
+<variable name="DEGtoRAD" value="1.74532925199433E-02"/>
+<variable name="width" value="100"/>
+<variable name="height" value="80"/>
+<variable name="depth" value="60"/>
+</define>
+<materials>
+<material name="vacuum" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+<material name="aluminium" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+<material name="air" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+</materials>
+<solids>
+<box name="Pillar1_vac_PartBody" x="(3.000000)*2" y="(3.000000)*2" z="(height * 1)*2" lunit="mm"/>
+<box name="Pillar1_PartBody" x="(5.000000)*2" y="(5.000000)*2" z="(height * 1)*2" lunit="mm"/>
+<box name="Pillar2_vac_PartBody" x="(3.000000)*2" y="((width - 10) * 1)*2" z="(3.000000)*2" lunit="mm"/>
+<box name="Pillar2_PartBody" x="(5.000000)*2" y="((width - 10) * 1)*2" z="(5.000000)*2" lunit="mm"/>
+<box name="Container_PartBody" x="( depth * 1)*2" y="(width * 1)*2" z="(height * 1)*2" lunit="mm"/>
+<box name="TopVolume_PartBody" x="(500.000000)*2" y="(500.000000)*2" z="(500.000000)*2" lunit="mm"/>
+</solids>
+<structure>
+<volume name="Pillar1_vac">
+<materialref ref="vacuum"/>
+<solidref ref="Pillar1_vac_PartBody"/>
+</volume>
+<volume name="Pillar1">
+<materialref ref="aluminium"/>
+<solidref ref="Pillar1_PartBody"/>
+<physvol>
+<volumeref ref="Pillar1_vac"/>
+<positionref ref="central"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+<volume name="Pillar2_vac">
+<materialref ref="vacuum"/>
+<solidref ref="Pillar2_vac_PartBody"/>
+</volume>
+<volume name="Pillar2">
+<materialref ref="aluminium"/>
+<solidref ref="Pillar2_PartBody"/>
+<physvol>
+<volumeref ref="Pillar2_vac"/>
+<positionref ref="central"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+<volume name="Container">
+<materialref ref="vacuum"/>
+<solidref ref="Container_PartBody"/>
+<physvol>
+<volumeref ref="Pillar1"/>
+<position name="Pillar1_pos_Container" x="(-depth + 5) * 1" y="(-width + 5) * 1" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Pillar1"/>
+<position name="Pillar1_pos_Container" x="(depth - 5) * 1" y="(-width + 5) * 1" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Pillar1"/>
+<position name="Pillar1_pos_Container" x="(-depth + 5) * 1" y="(width - 5) * 1" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Pillar1"/>
+<position name="Pillar1_pos_Container" x="(depth - 5) * 1" y="(width - 5) * 1" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Pillar2"/>
+<position name="Pillar2_pos_Container" x="(-depth + 5) * 1" y="0" z="(height - 5) * 1" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Pillar2"/>
+<position name="Pillar2_pos_Container" x="(-depth + 5) * 1" y="0" z="(-height + 5) * 1" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Pillar2"/>
+<position name="Pillar2_pos_Container" x="(depth - 5) * 1" y="0" z="(height - 5) * 1" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Pillar2"/>
+<position name="Pillar2_pos_Container" x="(depth - 5) * 1" y="0" z="(-height + 5) * 1" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+<volume name="TopVolume">
+<materialref ref="air"/>
+<solidref ref="TopVolume_PartBody"/>
+<physvol>
+<volumeref ref="Container"/>
+<positionref ref="central"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+</structure>
+<setup name="FAIRgeom" version="1.0">
+<world ref="TopVolume"/>
+</setup>
+</gdml>
