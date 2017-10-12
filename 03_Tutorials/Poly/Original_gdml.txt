@@ -1,0 +1,14 @@
+<polycone aunit="deg" deltaphi="360" lunit="mm" name="ME0x7f94b442e120" startphi="0">
+  <zplane rmax="2950" rmin="89.3" z="5541"/>
+  <zplane rmax="2950" rmin="105" z="6500"/>
+  <zplane rmax="3800" rmin="665.69" z="6500"/>
+  <zplane rmax="3800" rmin="675" z="6590"/>
+  <zplane rmax="3800" rmin="675" z="6610"/>
+  <zplane rmax="8300" rmin="675" z="6610"/>
+  <zplane rmax="8300" rmin="700" z="6835"/>
+  <zplane rmax="8300" rmin="1041.1" z="10165"/>
+  <zplane rmax="8300" rmin="1130" z="10165"/>
+  <zplane rmax="8300" rmin="1130" z="10500"/>
+  <zplane rmax="8300" rmin="1086" z="10500"/>
+  <zplane rmax="8300" rmin="1086" z="10860"/>
+</polycone>
