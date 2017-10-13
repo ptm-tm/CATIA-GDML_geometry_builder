@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<define>
+<position name="central" x="0" y="0" z="0" unit="mm"/>
+<rotation name="identity" x="0" y="0" z="0" unit="degree"/>
+<variable name="DEGtoRAD" value="1.74532925199433E-02"/>
+</define>
+<materials>
+<material name="vacuum" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+</materials>
+<solids>
+<box name="Part1_PartBody" x="(10.000000)*2" y="(10.000000)*2" z="(40.000000)*2" lunit="mm"/>
+<tube name="Part2_PartBody" rmin="0.000000" rmax="84.000000" z="(40.000000)*2" startphi="0.000000" deltaphi="360.000000" aunit="deg" lunit="mm"/>
+<tube name="Part3_PartBody" rmin="0.000000" rmax="90.000000" z="(50.000000)*2" startphi="0.000000" deltaphi="360.000000" aunit="deg" lunit="mm"/>
+</solids>
+<structure>
+<volume name="Part1">
+<materialref ref="vacuum"/>
+<solidref ref="Part1_PartBody"/>
+</volume>
+<volume name="Part2">
+<materialref ref="vacuum"/>
+<solidref ref="Part2_PartBody"/>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="0" y="-66" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="0" y="-44" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="0" y="-22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<positionref ref="central"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="0" y="22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="0" y="44" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="0" y="66" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="22" y="-55" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="22" y="-33" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="22" y="-11" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="22" y="11" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="22" y="33" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="22" y="55" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-22" y="-55" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-22" y="-33" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-22" y="-11" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-22" y="11" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-22" y="33" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-22" y="55" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="44" y="-44" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="44" y="-22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="44" y="0" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="44" y="22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="44" y="44" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-44" y="-44" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-44" y="-22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-44" y="0" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-44" y="22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-44" y="44" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="66" y="-22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="66" y="0" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="66" y="22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-66" y="-22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-66" y="0" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+<physvol>
+<volumeref ref="Part1"/>
+<position name="Part1_pos_Part2" x="-66" y="22" z="0" unit="mm"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+<volume name="Part3">
+<materialref ref="vacuum"/>
+<solidref ref="Part3_PartBody"/>
+<physvol>
+<volumeref ref="Part2"/>
+<positionref ref="central"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+</structure>
+<setup name="FAIRgeom" version="1.0">
+<world ref="Part3"/>
+</setup>
+</gdml>
