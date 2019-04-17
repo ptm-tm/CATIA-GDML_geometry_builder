@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<define>
+<position name="central" x="0" y="0" z="0" unit="mm"/>
+<rotation name="identity" x="0" y="0" z="0" unit="degree"/>
+<variable name="DEGtoRAD" value="1.74532925199433E-02"/>
+</define>
+<materials>
+<material name="aluminium" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+<material name="vacuum" Z="1.0">
+<D value="1"/>
+<atom value="1"/>
+</material>
+</materials>
+<solids>
+<xtru name="XtruVol_PartBody" lunit="mm">
+<twoDimVertex x=" 34.5126686096191" y=" 32.2477722167969"/>
+<twoDimVertex x=" 76.7906799316406" y=" 5.93186998367309"/>
+<twoDimVertex x=" 76.7906799316406" y="-59.4264907836914"/>
+<twoDimVertex x="-44.6507682800293" y="-59.4264907836914"/>
+<twoDimVertex x="-44.6507682800293" y="-10.4616470336914"/>
+<twoDimVertex x="-39.2581596374512" y=" 20.8154525756836"/>
+<section zOrder="0" zPosition="-10.000000" xOffset="10.000000" yOffset="20.000000" scalingFactor="1.2"/>
+<section zOrder="1" zPosition="15.000000" xOffset="30.000000" yOffset="40.000000" scalingFactor="1.5"/>
+</xtru>
+<box name="TopVol_PartBody" x="(150.000000)*2" y="(150.000000)*2" z="(150.000000)*2" lunit="mm"/>
+</solids>
+<structure>
+<volume name="XtruVol">
+<materialref ref="aluminium"/>
+<solidref ref="XtruVol_PartBody"/>
+</volume>
+<volume name="TopVol">
+<materialref ref="vacuum"/>
+<solidref ref="TopVol_PartBody"/>
+<physvol copynumber="1">
+<volumeref ref="XtruVol"/>
+<positionref ref="central"/>
+<rotationref ref="identity"/>
+</physvol>
+</volume>
+</structure>
+<setup name="FAIRgeom" version="1.0">
+<world ref="TopVol"/>
+</setup>
+</gdml>
